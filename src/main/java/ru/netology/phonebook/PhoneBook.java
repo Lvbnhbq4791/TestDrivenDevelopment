@@ -1,6 +1,7 @@
 package ru.netology.phonebook;
 
 import java.util.Map;
+import java.util.Optional;
 import java.util.TreeMap;
 
 public class PhoneBook {
@@ -16,6 +17,10 @@ public class PhoneBook {
     }
 
     public String findByNumber(String phoneNumber) {
-        return null;
+        Optional<String> key = phoneBookMap.entrySet().stream()
+                .filter(entry -> entry.getValue().equals(phoneNumber))
+                .map(Map.Entry::getKey)
+                .findFirst();
+        return key.orElse("null");
     }
 }
