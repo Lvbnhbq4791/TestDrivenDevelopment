@@ -18,5 +18,9 @@ public class Main {
         System.out.println(numberContact);
         numberContact = phoneBook.findByName("Petrov");
         System.out.println(numberContact);
+        phoneBook.add("Petrov", "8151515151");
+        phoneBook.add("Sidorov", "9854514545156");
+        phoneBook.add("Glazov", "5415182151");
+        phoneBook.printAllNames();
     }
 }

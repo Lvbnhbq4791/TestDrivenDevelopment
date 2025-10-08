@@ -27,4 +27,7 @@ public class PhoneBook {
     public String findByName(String name) {
         return phoneBookMap.get(name);
     }
+
+    public void printAllNames() {
+    }
 }

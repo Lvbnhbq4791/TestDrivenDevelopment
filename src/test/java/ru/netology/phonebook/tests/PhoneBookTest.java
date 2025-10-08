@@ -5,6 +5,9 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import ru.netology.phonebook.PhoneBook;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
@@ -38,7 +41,7 @@ public class PhoneBookTest {
 
     @Test
     @DisplayName("Проверка метода findByNumber на получение получении имени по номеру телефона")
-    public void givenNumber_whenCheckName_thenGetResult() {
+    public void givenNumber_whenCheckNameByNumber_thenGetResult() {
         phoneBook.add("Вася", "9951519999");
         phoneBook.add("Петрович", "55551854555");
         String result = phoneBook.findByNumber("9951519999");
@@ -49,12 +52,27 @@ public class PhoneBookTest {
 
     @Test
     @DisplayName("Проверка метода findByName на получение  номера телефона по имени")
-    public void givenName_whenCheckNumber_thenGetResult() {
+    public void givenName_whenCheckNumberByName_thenGetResult() {
         phoneBook.add("Ffxdfdx", "5151515151");
         phoneBook.add("Задов", "558454541");
         String result = phoneBook.findByName("Задов");
         assertThat(result, equalTo("558454541"));
         String result2 = phoneBook.findByName("Вася");
         assertThat(result2, equalTo(null));
+    }
+
+    @Test
+    @DisplayName("Проверка метода printAllNames на вывод имен по альфавиту")
+    public void givenPhoneBook_whenFormNamesAlphabetically_thenPrintNames() {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        PrintStream printStream = System.out;
+        System.setOut(new PrintStream(baos));
+        phoneBook.add("Petrov", "8151515151");
+        phoneBook.add("Sidorov", "9854514545156");
+        phoneBook.add("Glazov", "5415182151");
+        phoneBook.printAllNames();
+        System.setOut(printStream);
+        String methodOutput = baos.toString().trim();
+        assertThat(methodOutput, equalTo("Glazov\r\nPetrov\r\nSidorov"));
     }
 }
