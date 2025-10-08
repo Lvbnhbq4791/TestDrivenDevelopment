@@ -29,5 +29,8 @@ public class PhoneBook {
     }
 
     public void printAllNames() {
+        for (String name : phoneBookMap.keySet()) {
+            System.out.println(name);
+        }
     }
 }
