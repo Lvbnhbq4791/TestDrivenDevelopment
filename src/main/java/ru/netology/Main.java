@@ -8,5 +8,8 @@ public class Main {
         int numberOfContacts;
         numberOfContacts = phoneBook.add("Ivanov", "88005553535");
         System.out.println(numberOfContacts);
+        String nameContact;
+        nameContact = phoneBook.findByNumber("88005553535");
+        System.out.println(nameContact);
     }
 }
