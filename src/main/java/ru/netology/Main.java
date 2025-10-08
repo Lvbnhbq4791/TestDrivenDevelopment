@@ -16,5 +16,7 @@ public class Main {
         String numberContact;
         numberContact = phoneBook.findByName("Ivanov");
         System.out.println(numberContact);
+        numberContact = phoneBook.findByName("Petrov");
+        System.out.println(numberContact);
     }
 }
