@@ -46,4 +46,15 @@ public class PhoneBookTest {
         String result2 = phoneBook.findByNumber("22519859515");
         assertThat(result2, equalTo("null"));
     }
+
+    @Test
+    @DisplayName("Проверка метода findByName на получение  номера телефона по имени")
+    public void givenName_whenCheckNumber_thenGetResult() {
+        phoneBook.add("Ffxdfdx", "5151515151");
+        phoneBook.add("Задов", "558454541");
+        String result = phoneBook.findByName("Задов");
+        assertThat(result, equalTo("558454541"));
+        String result2 = phoneBook.findByName("Вася");
+        assertThat(result2, equalTo(null));
+    }
 }

@@ -13,5 +13,8 @@ public class Main {
         System.out.println(nameContact);
         nameContact = phoneBook.findByNumber("5151515151");
         System.out.println(nameContact);
+        String numberContact;
+        numberContact = phoneBook.findByName("Ivanov");
+        System.out.println(numberContact);
     }
 }
